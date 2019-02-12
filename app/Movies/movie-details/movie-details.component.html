@@ -1,0 +1,117 @@
+
+    <div id="details" class="list-group-item clearfix">
+           <div class="pull-left" >
+                <h4 class="list-group-item-heading">{{movie.Title | titlecase}}</h4>
+                <span class="list-group-item-text">{{movie.Director}}</span>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>{{movie.Runtime}}</p>
+                        <span>{{movie.Genre}}  |  {{movie.Year}}</span>
+                        </div>
+           </div>
+           <button class="btn btn-primary" (click)="open(content)">Edit</button>
+           </div>
+        </div>
+        <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Update Movie</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text"
+                                id="Title"
+                                formControlName="Title"
+                                class="form-control">
+                                <span 
+                              *ngIf="!movieForm.get('Title').valid && movieForm.get('Title').touched"
+                              style="color: red">
+                              <span *ngIf="movieForm.get('Title').errors['alreadyExist']">name alredy exist</span>
+                              <span *ngIf="movieForm.get('Title').errors['required']">this field is required</span>
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="Year">Year</label>
+                                    <input type="month"
+                                    id="Year"
+                                    formControlName="Year"
+                                    class="form-control">
+                                    <span 
+                              *ngIf="!movieForm.get('Year').valid && movieForm.get('Year').touched"
+                              style="color: red">
+                              <span *ngIf="movieForm.get('Year').errors['required']">this field is required</span>
+                              </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Runtime">Runtime</label>
+                                        <input type="text"
+                                        id="Runtime"
+                                        placeholder="min : "
+                                        formControlName="Runtime"
+                                        class="form-control">
+                                        <span 
+                              *ngIf="!movieForm.get('Runtime').valid && movieForm.get('Runtime').touched"
+                              style="color: red">
+                              <span *ngIf="movieForm.get('Runtime').errors['required']">this field is required</span>
+                              </span>
+                                </div>
+                                    </div>
+                                </div>
+    
+                            <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label for="Genre">Genre</label>
+                                            <input type="text"
+                                            id="Genre"
+                                            formControlName="Genre"
+                                            class="form-control">
+                                            <span 
+                              *ngIf="!movieForm.get('Genre').valid && movieForm.get('Genre').touched"
+                              style="color: red">
+                              <span *ngIf="movieForm.get('Genre').errors['required']">this field is required</span>
+                              </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label for="Director">Director</label>
+                                                <input type="text"
+                                                id="Director"
+                                                formControlName="Director"
+                                                class="form-control">
+                                                <span 
+                              *ngIf="!movieForm.get('Director').valid && movieForm.get('Director').touched"
+                              style="color: red">
+                              <span *ngIf="movieForm.get('Director').errors['required']">this field is required</span>
+                              </span>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="row">
+                                            <button id="saveButton" type="submit"
+                                             class="btn btn-success"
+                                             [disabled]="!movieForm.valid">Save</button>
+                                        </div>
+                </form>
+            </div>
+          </ng-template>                      
+    
+    

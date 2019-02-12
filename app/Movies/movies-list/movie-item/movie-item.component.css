@@ -1,0 +1,22 @@
+
+
+a:hover {
+    background-color: white;
+    color: black;
+}
+a{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 25px;
+    margin: 15px;
+    border-radius: 12px;
+}
+p{
+    font-size: 30px;
+}
+a:focus{
+    background-color: black;
+    color: white;
+    font-size: 25px;
+}

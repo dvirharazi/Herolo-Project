@@ -1,0 +1,19 @@
+
+input.ng-invalid.ng-touched{
+    border:1px solid red;
+}
+button{
+    border-radius: 20px;
+    background-color: black;
+    border: 10px solid white;
+    color: white;
+    margin-top: 40px;
+    display: block;
+}
+button:hover{
+    background-color: white;
+    color: black;
+}
+div{
+    justify-content: center;
+}
